@@ -1,0 +1,32 @@
+<h2>Report</h2>
+
+<form method="GET">
+    <input type="date" name="date">
+    <input type="number" name="month" placeholder="Month">
+    <input type="number" name="year" placeholder="Year">
+    <button>Filter</button>
+</form>
+
+<br>
+
+<a href="/download/?date={{request.GET.date}}&month={{request.GET.month}}&year={{request.GET.year}}">
+Download CSV
+</a>
+
+<h3>Total: {{ total }}</h3>
+
+<table border="1">
+<tr>
+<th>Amount</th><th>Type</th><th>Category</th><th>Description</th><th>Date</th>
+</tr>
+
+{% for t in transactions %}
+<tr>
+<td>{{ t.amount }}</td>
+<td>{{ t.type }}</td>
+<td>{{ t.category }}</td>
+<td>{{ t.description }}</td>
+<td>{{ t.date }}</td>
+</tr>
+{% endfor %}
+</table>

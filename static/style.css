@@ -1,0 +1,147 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.2);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: white;
+    cursor: pointer;
+}
+
+/* CONTAINER */
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.cards div {
+    width: 200px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+}
+
+/* CARD COLORS */
+.cards div:nth-child(1) {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+}
+.cards div:nth-child(2) {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+}
+.cards div:nth-child(3) {
+    background: linear-gradient(45deg, #00b09b, #96c93d);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    max-width: 900px;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background: #667eea;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* FORM */
+form {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* INPUT */
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #667eea;
+    color: white;
+    border-radius: 8px;
+}
+
+/* LINKS */
+a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}

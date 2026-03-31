@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+
+<a href="/add/">➕ Add Expense</a>
+<a href="/report/">📊 Report</a>
+
+<div class="cards">
+    <div>Credit<br>₹{{ credit }}</div>
+    <div>Debit<br>₹{{ debit }}</div>
+    <div>Balance<br>₹{{ balance }}</div>
+</div>
+
+<table>
+<tr>
+<th>Amount</th><th>Type</th><th>Category</th><th>Description</th><th>Date</th>
+</tr>
+
+{% for t in transactions %}
+<tr>
+<td>{{ t.amount }}</td>
+<td>{{ t.type }}</td>
+<td>{{ t.category }}</td>
+<td>{{ t.description }}</td>
+<td>{{ t.date }}</td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
