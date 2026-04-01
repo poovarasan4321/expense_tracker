@@ -1,3 +1,4 @@
+from django.shortcuts import render, redirect, get_object_or_404
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
@@ -91,3 +92,30 @@ def download_report(request):
         writer.writerow([i.amount, i.type, i.category, i.description, i.date])
 
     return response
+
+
+@login_required
+def edit_expense(request, id):
+    expense = get_object_or_404(Transaction, id=id, user=request.user)
+
+    if request.method == 'POST':
+        expense.amount = request.POST['amount']
+        expense.type = request.POST['type']
+        expense.category = request.POST['category']
+        expense.description = request.POST['description']
+        expense.date = request.POST['date']
+        expense.save()
+        return redirect('dashboard')
+
+    return render(request, 'edit.html', {'expense': expense})
+
+
+@login_required
+def delete_expense(request, id):
+    expense = get_object_or_404(Transaction, id=id, user=request.user)
+
+    if request.method == "POST":
+        expense.delete()
+        return redirect('dashboard')
+        
+    return redirect('dashboard')

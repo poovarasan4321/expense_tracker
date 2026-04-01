@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Edit Expense</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="number" name="amount" value="{{ expense.amount }}" required>
+
+    <select name="type">
+        <option value="Credit" {% if expense.type == "Credit" %}selected{% endif %}>Credit</option>
+        <option value="Debit" {% if expense.type == "Debit" %}selected{% endif %}>Debit</option>
+    </select>
+
+    <select name="category">
+        <option {% if expense.category == "Grocery" %}selected{% endif %}>Grocery</option>
+        <option {% if expense.category == "Snacks" %}selected{% endif %}>Snacks</option>
+        <option {% if expense.category == "Food" %}selected{% endif %}>Food</option>
+        <option {% if expense.category == "Travel" %}selected{% endif %}>Travel</option>
+        <option {% if expense.category == "Recharge" %}selected{% endif %}>Recharge</option>
+        <option {% if expense.category == "Monthly Compulsory" %}selected{% endif %}>Monthly Compulsory</option>
+    </select>
+
+    <input type="text" name="description" value="{{ expense.description }}">
+    <input type="date" name="date" value="{{ expense.date|date:'Y-m-d' }}">
+
+    <button type="submit">Update</button>
+</form>
+
+{% endblock %}
