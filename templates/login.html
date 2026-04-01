@@ -1,7 +1,71 @@
-<h2>Login</h2>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        height: 100vh;
+        background: linear-gradient(red, yellow);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      
+      main {
+        height: 300px;
+        width: 300px;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 70px;
+        border-radius: 10px;
+        box-shadow: 0px 20px 30px red;
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        font-weight: bolder;
+        text-transform: capitalize;
+      
+        box-shadow: 0px 10px 20px yellow;
+      }
+      
+      form > button {
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 6px;
+        background: blue;
+        color: white;
+        box-shadow: 0px 0px 20px black;
+      }
+    </style>
+  </head>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>Login</button>
-</form>
+  <body>
+    <h1 style="color: white; text-decoration:wavy;">Welcome to Expense Tracker</h1>
+    <main>
+      <div>
+        <h2>Login</h2>
+      </div>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button id="1">Login</button>
+      </form>
+    </main>
+  </body>
+</html>
