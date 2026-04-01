@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import dj_database_url
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -52,7 +54,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'expense_tracker.urls'
 
-import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -81,11 +82,10 @@ WSGI_APPLICATION = 'expense_tracker.wsgi.application'
 #     }
 # }
 
-import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.parse(
-        'postgresql://expense_db_t4mt_user:bhEOPgS4YmqY9OqyXpDlFhwBI8yJW5qE@dpg-d7696k5m5p6s73bhvjag-a/expense_db_t4mt'
+        'postgresql://expense_db_t4mt_user:bhEOPgS4YmqY9OqyXpDlFhwBI8yJW5qE@dpg-d7696k5m5p6s73bhvjag-a.oregon-postgres.render.com/expense_db_t4mt'
     )
 }
 
