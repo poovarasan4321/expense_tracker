@@ -91,13 +91,13 @@
         <td>{{ t.category }}</td>
         <td>{{ t.description }}</td>
         <td>{{ t.date }}</td>
+        <td>
           <a href="/edit/{{ t.id }}/">✏️ Edit</a>
 
           <form action="/delete/{{ t.id }}/" method="POST" style="display:inline;">
             {% csrf_token %}
             <button type="submit" onclick="return confirm('Delete this?')">🗑️</button>
           </form>
-        </td>
         </td>
       </tr>
       {% endfor %}
