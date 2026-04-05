@@ -99,11 +99,12 @@ def edit_expense(request, id):
     expense = get_object_or_404(Transaction, id=id, user=request.user)
 
     if request.method == 'POST':
-        expense.amount = request.POST['amount']
-        expense.type = request.POST['type']
-        expense.category = request.POST['category']
-        expense.description = request.POST['description']
-        expense.date = request.POST['date']
+        expense.amount = request.POST.get('amount')
+        expense.type = request.POST.get('type')
+        expense.category = request.POST.get('category')
+        expense.description = request.POST.get('description')
+        expense.date = request.POST.get('date')
+
         expense.save()
         return redirect('dashboard')
 
@@ -117,5 +118,5 @@ def delete_expense(request, id):
     if request.method == "POST":
         expense.delete()
         return redirect('dashboard')
-        
+
     return redirect('dashboard')

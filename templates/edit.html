@@ -9,10 +9,10 @@
 
     <input type="number" name="amount" value="{{ expense.amount }}" required>
 
-    <select name="type">
-        <option value="Credit" {% if expense.type == "Credit" %}selected{% endif %}>Credit</option>
-        <option value="Debit" {% if expense.type == "Debit" %}selected{% endif %}>Debit</option>
-    </select>
+   <select name="type">
+    <option value="Credit" {% if expense.type == "Credit" %}selected{% endif %}>Credit</option>
+    <option value="Debit" {% if expense.type == "Debit" %}selected{% endif %}>Debit</option>
+</select>
 
     <select name="category">
         <option {% if expense.category == "Grocery" %}selected{% endif %}>Grocery</option>
@@ -24,7 +24,7 @@
     </select>
 
     <input type="text" name="description" value="{{ expense.description }}">
-    <input type="date" name="date" value="{{ expense.date|date:'Y-m-d' }}">
+   <input type="date" name="date" value="{{ expense.date|date:'Y-m-d' }}">
 
     <button type="submit">Update</button>
 </form>
